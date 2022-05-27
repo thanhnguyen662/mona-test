@@ -7,7 +7,7 @@ function MainLayout(props) {
    return (
       <div>
          <Header />
-         <div className='bg-[#f4f2f9] h-screen'>
+         <div className='bg-[#f4f2f9]'>
             <Outlet />
          </div>
          <Footer />

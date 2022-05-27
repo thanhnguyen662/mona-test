@@ -1,4 +1,5 @@
 import React from 'react';
+import FlightCard from '../../components/FlightCard';
 import FlightDetailFilter from '../../components/FlightDetailFilter';
 import FlightDetailHeader from '../../components/FlightDetailHeader';
 import YourFlight from '../../components/YourFlight';
@@ -13,11 +14,18 @@ function FlightDetailPage(props) {
                <FlightDetailHeader />
             </div>
          </div>
-         <div className='md:container md:mx-auto bg-[#f4f2f9] mt-5'>
+         <div className='md:container md:mx-auto bg-[#f4f2f9] my-5'>
             <div className='grid grid-cols-4 gap-4'>
                <div className='col-span-3'>
-                  <div className='flex justify-end'>
-                     <FlightDetailFilter />
+                  <div className='flex gap-4 flex-col'>
+                     <div className='flex justify-end'>
+                        <FlightDetailFilter />
+                     </div>
+                     <div className='flex flex-col gap-5'>
+                        <FlightCard />
+                        <FlightCard />
+                        <FlightCard />
+                     </div>
                   </div>
                </div>
                <div className='col-span-1'>

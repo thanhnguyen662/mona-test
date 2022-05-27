@@ -1,8 +1,7 @@
 import React from 'react';
-import ArriveLine from '../../../../common/components/ArriveLine';
 import Avatar from '../../../../common/components/Avatar';
 import AvatarContent from '../../../../common/components/AvatarContent';
-import Tag from '../../../../common/components/Tag';
+import FlightDetailTime from '../FlightDetailTime';
 
 function YourFlight(props) {
    return (
@@ -13,7 +12,7 @@ function YourFlight(props) {
          <div className='flex gap-5 flex-col w-full px-5'>
             <YourFlightDate />
             <YourFlightAirline />
-            <YourFlightTime />
+            <FlightDetailTime />
             <button className='w-full bg-[#EEEDFE] h-12 rounded-xl text-purple'>
                Change departure flight
             </button>
@@ -71,35 +70,35 @@ function YourFlightAirline() {
    );
 }
 
-function YourFlightTime() {
-   return (
-      <div className='flex justify-between items-center gap-6'>
-         <div className='flex flex-col gap-2'>
-            <div className='flex font-semibold text-xl justify-center '>
-               21:40
-            </div>
-            <div className='flex justify-center'>
-               <Tag>
-                  <p className='text-sm'>DAD</p>
-               </Tag>
-            </div>
-         </div>
-         <div className='w-full'>
-            <ArriveLine />
-         </div>
-         <div className='flex flex-col gap-2'>
-            <div className='flex font-semibold text-xl justify-center '>
-               21:40
-            </div>
-            <div className='flex justify-center'>
-               <Tag>
-                  <p className='text-sm'>DAD</p>
-               </Tag>
-            </div>
-         </div>
-      </div>
-   );
-}
+// function YourFlightTime() {
+//    return (
+//       <div className='flex justify-between items-center gap-6'>
+//          <div className='flex flex-col gap-2'>
+//             <div className='flex font-semibold text-xl justify-center '>
+//                21:40
+//             </div>
+//             <div className='flex justify-center'>
+//                <Tag>
+//                   <p className='text-sm'>DAD</p>
+//                </Tag>
+//             </div>
+//          </div>
+//          <div className='w-full'>
+//             <ArriveLine />
+//          </div>
+//          <div className='flex flex-col gap-2'>
+//             <div className='flex font-semibold text-xl justify-center '>
+//                21:40
+//             </div>
+//             <div className='flex justify-center'>
+//                <Tag>
+//                   <p className='text-sm'>DAD</p>
+//                </Tag>
+//             </div>
+//          </div>
+//       </div>
+//    );
+// }
 
 function YourFlightSubTotal() {
    return (
