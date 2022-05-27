@@ -1,12 +1,19 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import FlightDetailHeader from '../../components/FlightDetailHeader';
 
 FlightDetailPage.propTypes = {};
 
 function FlightDetailPage(props) {
    return (
       <div>
-         <h1>This is Detail page</h1>
+         <div className='flex items-center h-24 bg-white'>
+            <div className='md:container md:mx-auto'>
+               <FlightDetailHeader />
+            </div>
+         </div>
+         <div className='md:container md:mx-auto bg-[#f4f2f9] mt-10'>
+            <h1>This is content</h1>
+         </div>
       </div>
    );
 }

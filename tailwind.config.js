@@ -5,6 +5,7 @@ module.exports = {
          colors: {
             purple: '#4d46f9',
             white: '#fff',
+            orange: '#ef6336',
          },
       },
    },
