@@ -10,6 +10,9 @@ module.exports = {
          backgroundImage: {
             home: 'url(/public/images/home-page-background.webp)',
          },
+         fontFamily: {
+            Rampart: ['Plus Jakarta Sans', 'system-ui'],
+         },
       },
    },
    plugins: [],

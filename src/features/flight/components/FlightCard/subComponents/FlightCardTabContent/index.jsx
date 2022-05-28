@@ -15,7 +15,7 @@ function FlightCardTabContent({
             flightNumber={flightNumber}
             groupClass={groupClass}
          />
-         <div className='grid grid-cols-2 grid-flow-row gap-3 bg-[#f4f2f9] py-5 px-6 text-xl rounded-2xl'>
+         <div className='grid grid-cols-2 grid-flow-row gap-4 bg-[#f4f2f9] py-5 px-6 text-xl rounded-2xl'>
             <span>
                <p className='inline'>Baggage </p>
                <p className='inline font-semibold text-purple'>{freebag}</p>

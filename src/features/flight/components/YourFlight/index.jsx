@@ -97,7 +97,7 @@ function YourFlightAirline({ airlineCode }) {
             <Avatar src={getAirlineByCode(airlineCode).logo} />
          </div>
          <div className='col-span-10'>
-            <div className='text-lg uppercase'>
+            <div className='text-lg uppercase font-semibold'>
                {getAirlineByCode(airlineCode).name}
             </div>
             <div className='text-md underline text-purple font-semibold'>

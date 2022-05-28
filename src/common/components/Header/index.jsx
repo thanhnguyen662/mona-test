@@ -13,7 +13,6 @@ function Header({ theme = 'light' }) {
 
    return (
       <div
-         onClick={() => navigate('/flight')}
          className={`md:container md:mx-auto flex justify-between items-center h-24 ${themeStyle}`}
       >
          <div className='flex-1 flex gap-4 h-full items-center'>
@@ -26,6 +25,7 @@ function Header({ theme = 'light' }) {
          <div className='flex-1 flex justify-end'>
             <button
                className={`px-5 py-3 rounded-xl font-semibold ${themeStyleButton}`}
+               onClick={() => navigate('/flight')}
             >
                Booking now
             </button>
