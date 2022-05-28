@@ -2,41 +2,71 @@ import React from 'react';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { ImSpoonKnife } from 'react-icons/im';
 import Avatar from '../../../../../../common/components/Avatar';
+import getAirlineByCode from '../../../../../../constants/airlineCode';
+import priceFormat from '../../../../../../utils/priceFormat';
 import FlightDetailTime from '../../../FlightDetailTime';
 
-function FlightCardHeader(props) {
+function FlightCardHeader({
+   isSelectedFareInfo,
+   airlineCode,
+   freebag,
+   priceAdult,
+   taxAdult,
+   chargeAdult,
+   startTime,
+   endTime,
+   startPoint,
+   endPoint,
+   flyDuration,
+}) {
+   const buttonStyle = isSelectedFareInfo
+      ? 'text-white bg-orange'
+      : 'bg-[#fef0eb] text-orange';
+
    return (
       <div className='flex items-center justify-between gap-16  w-full'>
-         <FlightAirline />
+         <FlightAirline airlineCode={airlineCode} />
          <div className='flex-1'>
-            <FlightDetailTime />
+            <FlightDetailTime
+               startTime={startTime}
+               endTime={endTime}
+               startPoint={startPoint}
+               endPoint={endPoint}
+               flyDuration={flyDuration}
+            />
          </div>
-         <FlightRequired />
-         <FlightPrice />
-         <button className='bg-[#fef0eb] text-orange px-5 py-2 rounded-xl'>
+         <FlightRequired freebag={freebag} />
+         <FlightPrice
+            priceAdult={priceAdult}
+            taxAdult={taxAdult}
+            chargeAdult={chargeAdult}
+         />
+         <button className={`${buttonStyle} px-5 py-2 rounded-xl`}>
             Choose
          </button>
       </div>
    );
 }
 
-function FlightAirline() {
+function FlightAirline({ airlineCode }) {
    return (
       <div className='flex items-center gap-5'>
-         <Avatar src='https://pbs.twimg.com/profile_images/981789250109632512/MV_jHh4c_400x400.jpg' />
-         <div className='font-semibold'>BAMBOO AIRWAYS</div>
+         <Avatar src={getAirlineByCode(airlineCode).logo} />
+         <div className='font-semibold uppercase'>
+            {getAirlineByCode(airlineCode).name}
+         </div>
       </div>
    );
 }
 
-function FlightRequired() {
+function FlightRequired({ freebag }) {
    return (
       <div className='flex flex-col gap-1'>
          <div className='flex items-center gap-3 text-lg'>
             <HiOutlineShoppingBag />
             <span>
                <p className='inline'>Baggage </p>
-               <p className='inline text-purple font-semibold'>20kg</p>
+               <p className='inline text-purple font-semibold'>{freebag}</p>
             </span>
          </div>
          <div className='flex items-center gap-3 text-lg'>
@@ -50,11 +80,15 @@ function FlightRequired() {
    );
 }
 
-function FlightPrice() {
+function FlightPrice({ priceAdult, taxAdult, chargeAdult }) {
    return (
       <div className='flex flex-col gap-1 text-lg'>
-         <div className='line-through text-gray-400'>1.326.000 vnd</div>
-         <div className='text-orange font-semibold'>1.326.000 vnd</div>
+         <div className='line-through text-gray-400'>
+            {priceFormat(priceAdult + taxAdult + chargeAdult)} vnd
+         </div>
+         <div className='text-orange font-semibold'>
+            {priceFormat(priceAdult + taxAdult + chargeAdult)} vnd
+         </div>
       </div>
    );
 }

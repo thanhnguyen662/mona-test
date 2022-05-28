@@ -1,67 +1,105 @@
+import { format, parseISO } from 'date-fns';
 import React from 'react';
 import Avatar from '../../../../common/components/Avatar';
 import AvatarContent from '../../../../common/components/AvatarContent';
+import getAirlineByCode from '../../../../constants/airlineCode';
+import getLocationByCode from '../../../../constants/locationCode';
+import priceFormat from '../../../../utils/priceFormat';
 import FlightDetailTime from '../FlightDetailTime';
 
-function YourFlight(props) {
+function YourFlight({ flight }) {
    return (
       <div className='flex gap-4 w-full bg-white rounded-xl flex-col '>
          <div className='w-full px-5 py-6 border-b-2'>
             <h1 className='text-xl leading-none font-semibold'>YOUR FLIGHT</h1>
          </div>
          <div className='flex gap-5 flex-col w-full px-5'>
-            <YourFlightDate />
-            <YourFlightAirline />
-            <FlightDetailTime />
+            <YourFlightDate
+               startDate={flight.StartDate}
+               endDate={flight.EndDate}
+               startPoint={flight.StartPoint}
+               endPoint={flight.EndPoint}
+            />
+            <YourFlightAirline airlineCode={flight.AirlineCode} />
+            <FlightDetailTime
+               startTime={flight.RelatedFlights[0].StartTime}
+               endTime={flight.RelatedFlights[0].EndTime}
+               startPoint={flight.StartPoint}
+               endPoint={flight.EndPoint}
+               flyDuration={flight.Duration}
+            />
             <button className='w-full bg-[#EEEDFE] h-12 rounded-xl text-purple'>
                Change departure flight
             </button>
             <hr />
-            <YourFlightBackDate />
+            <YourFlightBackDate
+               startDate={flight.StartDate}
+               endDate={flight.EndDate}
+               startPoint={flight.StartPoint}
+               endPoint={flight.EndPoint}
+            />
          </div>
          <div className='w-full px-5 py-6 bg-[#f8f8f8] rounded-b-xl'>
-            <YourFlightSubTotal />
+            <YourFlightSubTotal
+               priceAdult={flight.PriceAdult}
+               taxAdult={flight.TaxAdult}
+               chargeAdult={flight.ChargeAdult}
+            />
          </div>
       </div>
    );
 }
 
-function YourFlightDate() {
+function YourFlightDate({ startDate, startPoint, endPoint }) {
    return (
       <div className='grid grid-cols-12 gap-4 items-center'>
          <AvatarContent bg='gray-400'>
-            <p className='leading-none text-white'>01</p>
+            <p className='leading-none text-white'>
+               {format(parseISO(startDate), 'dd')}
+            </p>
          </AvatarContent>
          <div className='col-span-10'>
-            <div className='text-lg'>Fri, 11 Feb, 2022</div>
-            <div className='text-xl font-bold'>Da Nang - Ho Chi Minh</div>
+            <div className='text-lg'>
+               {format(parseISO(startDate), 'iii, dd MMM, yyyy')}
+            </div>
+            <div className='text-md font-bold'>{`${
+               getLocationByCode(startPoint).city
+            } - ${getLocationByCode(endPoint).city}`}</div>
          </div>
       </div>
    );
 }
 
-function YourFlightBackDate() {
+function YourFlightBackDate({ endDate, startPoint, endPoint }) {
    return (
       <div className='grid grid-cols-12 gap-4 items-center'>
          <AvatarContent bg='purple'>
-            <p className='leading-none text-white'>02</p>
+            <p className='leading-none text-white'>
+               {format(parseISO(endDate), 'dd')}
+            </p>
          </AvatarContent>
          <div className='col-span-10'>
-            <div className='text-lg'>Fri, 11 Feb, 2022</div>
-            <div className='text-xl font-bold'>Da Nang - Ho Chi Minh</div>
+            <div className='text-lg'>
+               {format(parseISO(endDate), 'iii, dd MMM, yyyy')}
+            </div>
+            <div className='text-md font-bold'>{`${
+               getLocationByCode(endPoint).city
+            } - ${getLocationByCode(startPoint).city}`}</div>
          </div>
       </div>
    );
 }
 
-function YourFlightAirline() {
+function YourFlightAirline({ airlineCode }) {
    return (
       <div className='grid grid-cols-12 gap-4 items-center'>
          <div className='col-span-2 w-full'>
-            <Avatar src='https://pbs.twimg.com/profile_images/981789250109632512/MV_jHh4c_400x400.jpg' />
+            <Avatar src={getAirlineByCode(airlineCode).logo} />
          </div>
          <div className='col-span-10'>
-            <div className='text-lg uppercase'>BAMBOO AIRWAYS</div>
+            <div className='text-lg uppercase'>
+               {getAirlineByCode(airlineCode).name}
+            </div>
             <div className='text-md underline text-purple font-semibold'>
                Details
             </div>
@@ -70,41 +108,13 @@ function YourFlightAirline() {
    );
 }
 
-// function YourFlightTime() {
-//    return (
-//       <div className='flex justify-between items-center gap-6'>
-//          <div className='flex flex-col gap-2'>
-//             <div className='flex font-semibold text-xl justify-center '>
-//                21:40
-//             </div>
-//             <div className='flex justify-center'>
-//                <Tag>
-//                   <p className='text-sm'>DAD</p>
-//                </Tag>
-//             </div>
-//          </div>
-//          <div className='w-full'>
-//             <ArriveLine />
-//          </div>
-//          <div className='flex flex-col gap-2'>
-//             <div className='flex font-semibold text-xl justify-center '>
-//                21:40
-//             </div>
-//             <div className='flex justify-center'>
-//                <Tag>
-//                   <p className='text-sm'>DAD</p>
-//                </Tag>
-//             </div>
-//          </div>
-//       </div>
-//    );
-// }
-
-function YourFlightSubTotal() {
+function YourFlightSubTotal({ priceAdult, taxAdult, chargeAdult }) {
    return (
       <div className='flex flex-col'>
          <div className='text-lg'>Subtotal</div>
-         <div className='text-xl text-orange font-semibold'>1,322,000 vnd</div>
+         <div className='text-xl text-orange font-semibold'>
+            {priceFormat(priceAdult + taxAdult + chargeAdult)} vnd
+         </div>
       </div>
    );
 }

@@ -1,24 +1,28 @@
 import React from 'react';
-import Avatar from '../../../../../../common/components/Avatar';
+import FlightCardAirlineProfile from '../FlightCardAirlineProfile';
 
-function FlightCardTabContent(props) {
+function FlightCardTabContent({
+   airlineCode,
+   flightNumber,
+   groupClass,
+   freebag,
+   plane,
+}) {
    return (
       <div className='flex gap-5 flex-col'>
-         <div className='flex items-center gap-5'>
-            <Avatar src='https://pbs.twimg.com/profile_images/981789250109632512/MV_jHh4c_400x400.jpg' />
-            <div>
-               <div className='font-semibold'>BAMBOO AIRWAYS</div>
-               <div>QH-183 &sdot; Economy</div>
-            </div>
-         </div>
-         <div className='grid grid-cols-2 grid-flow-row gap-3 bg-[#f4f2f9] py-5 px-6 text-lg rounded-2xl'>
+         <FlightCardAirlineProfile
+            airlineCode={airlineCode}
+            flightNumber={flightNumber}
+            groupClass={groupClass}
+         />
+         <div className='grid grid-cols-2 grid-flow-row gap-3 bg-[#f4f2f9] py-5 px-6 text-xl rounded-2xl'>
             <span>
                <p className='inline'>Baggage </p>
-               <p className='inline font-semibold text-purple'>20kg</p>
+               <p className='inline font-semibold text-purple'>{freebag}</p>
             </span>
             <span>
                <p className='inline'>Aircraft </p>
-               <p className='inline font-semibold text-purple'>Airbus A321</p>
+               <p className='inline font-semibold text-purple'>{plane}</p>
             </span>
             <span>
                <p className='inline'>In-flight </p>

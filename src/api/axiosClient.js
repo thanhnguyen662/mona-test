@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-   withCredentials: true,
    baseURL: 'https://mocki.io/v1/',
    headers: {
       'content-type': 'application/json',

@@ -5,7 +5,7 @@ import FlightDetailPage from './pages/FlightDetailPage';
 function Flight(props) {
    return (
       <Routes>
-         <Route path=':flightId' element={<FlightDetailPage />} />
+         <Route path='/' element={<FlightDetailPage />} />
       </Routes>
    );
 }
