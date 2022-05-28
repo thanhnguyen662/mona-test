@@ -38,7 +38,7 @@ function SearchCardFromTo(props) {
            
          "
          >
-            <h2 className='text-lg text-gray-500'>FROM</h2>
+            <h2 className='text-lg text-gray-500 font-semibold'>FROM</h2>
             <h1 className='text-purple font-semibold text-3xl'>Da Nang</h1>
             <h2 className='text-xl font-semibold mt-1'>Viet Nam</h2>
          </div>
@@ -68,7 +68,7 @@ function SearchCardFromTo(props) {
             transition-all
          "
          >
-            <h2 className='text-lg pl-6 text-gray-500 '>TO</h2>
+            <h2 className='text-lg pl-6 text-gray-500  font-semibold'>TO</h2>
             <h1 className='text-purple pl-6 font-semibold text-3xl'>
                Ho Chi Minh
             </h1>
