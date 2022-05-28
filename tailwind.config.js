@@ -7,6 +7,9 @@ module.exports = {
             white: '#fff',
             orange: '#ef6336',
          },
+         backgroundImage: {
+            home: 'url(/public/images/home-page-background.webp)',
+         },
       },
    },
    plugins: [],

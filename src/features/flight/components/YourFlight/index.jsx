@@ -53,7 +53,7 @@ function YourFlight({ flight }) {
 function YourFlightDate({ startDate, startPoint, endPoint }) {
    return (
       <div className='grid grid-cols-12 gap-4 items-center'>
-         <AvatarContent bg='gray-400'>
+         <AvatarContent bg='bg-gray-400'>
             <p className='leading-none text-white'>
                {format(parseISO(startDate), 'dd')}
             </p>
@@ -73,7 +73,7 @@ function YourFlightDate({ startDate, startPoint, endPoint }) {
 function YourFlightBackDate({ endDate, startPoint, endPoint }) {
    return (
       <div className='grid grid-cols-12 gap-4 items-center'>
-         <AvatarContent bg='purple'>
+         <AvatarContent bg='bg-purple'>
             <p className='leading-none text-white'>
                {format(parseISO(endDate), 'dd')}
             </p>

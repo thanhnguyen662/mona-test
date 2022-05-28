@@ -6,7 +6,9 @@ import Header from '../../components/Header';
 function MainLayout(props) {
    return (
       <div>
-         <Header />
+         <div className='bg-purple'>
+            <Header />
+         </div>
          <div className='bg-[#f4f2f9] min-h-screen'>
             <Outlet />
          </div>

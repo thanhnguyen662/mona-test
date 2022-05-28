@@ -62,14 +62,14 @@ function FlightAirline({ airlineCode }) {
 function FlightRequired({ freebag }) {
    return (
       <div className='flex flex-col gap-1'>
-         <div className='flex items-center gap-3 text-lg'>
+         <div className='flex items-center gap-3 text-md'>
             <HiOutlineShoppingBag />
             <span>
                <p className='inline'>Baggage </p>
                <p className='inline text-purple font-semibold'>{freebag}</p>
             </span>
          </div>
-         <div className='flex items-center gap-3 text-lg'>
+         <div className='flex items-center gap-3 text-md'>
             <ImSpoonKnife />
             <span>
                <p className='inline'>In-flight </p>

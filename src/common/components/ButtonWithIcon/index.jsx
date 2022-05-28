@@ -7,12 +7,24 @@ ButtonWithIcon.propTypes = {
    textColor: PropTypes.string,
    fontWeight: PropTypes.string,
    content: PropTypes.string,
+   height: PropTypes.string,
+   rounded: PropTypes.string,
+   fontSize: PropTypes.string,
 };
 
-function ButtonWithIcon({ rightIcon, bg, textColor, fontWeight, content }) {
+function ButtonWithIcon({
+   rightIcon,
+   bg,
+   textColor,
+   fontWeight,
+   content,
+   height,
+   rounded = 'rounded-xl',
+   fontSize,
+}) {
    return (
       <button
-         className={`flex items-center gap-4 bg-${bg} px-5 py-3 rounded-xl font-${fontWeight} text-${textColor}`}
+         className={`flex items-center gap-4 bg-${bg} px-5 py-3 ${rounded} font-${fontWeight} text-${textColor} ${height} ${fontSize}`}
       >
          {content}
          {rightIcon}
