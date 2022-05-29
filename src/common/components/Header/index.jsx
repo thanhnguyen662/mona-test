@@ -13,7 +13,7 @@ function Header({ theme = 'light' }) {
 
    return (
       <div
-         className={`md:container md:mx-auto flex justify-between items-center h-24 ${themeStyle}`}
+         className={`container mx-auto px-4 flex justify-between items-center h-24 ${themeStyle}`}
       >
          <div className='flex-1 flex gap-4 h-full items-center'>
             <Logo />

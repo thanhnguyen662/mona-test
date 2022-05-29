@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 function Footer(props) {
    return (
       <div className='bg-[#f4f2f9] py-10'>
-         <div className='md:container md:mx-auto '>
+         <div className='container mx-auto px-4'>
             <div className='flex gap-10 text-lg'>
                <div className='flex items-center gap-3'>
                   <RoundedIcon>

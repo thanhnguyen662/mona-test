@@ -26,11 +26,11 @@ function FlightDetailPage(props) {
    return (
       <div>
          <div className='flex items-center h-24 bg-white'>
-            <div className='md:container md:mx-auto'>
+            <div className='container mx-auto px-4'>
                <FlightDetailHeader />
             </div>
          </div>
-         <div className='md:container md:mx-auto bg-[#f4f2f9] mt-5'>
+         <div className='container mx-auto px-4 bg-[#f4f2f9] mt-5'>
             {flightList.length === 0 ? (
                <div className='flex justify-center items-center w-full h-[70vh]'>
                   <Spinner />

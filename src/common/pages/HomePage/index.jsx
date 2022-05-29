@@ -5,11 +5,11 @@ import SearchCard from '../../components/SearchCard';
 
 function HomePage(props) {
    return (
-      <div className='w-full h-screen bg-[#f4f2f9]'>
-         <div className='bg-home h-[70vh] bg-cover'>
+      <div className='w-full h-screen bg-[#f4f2f9] relative'>
+         <div className='bg-home h-[70vh] bg-cover relative'>
             <Header theme='dark' />
-            <div className='md:container md:mx-auto relative'>
-               <div className='absolute top-[50%] translate-y-[50%] flex flex-col text-[64px] font-thin leading-none gap-4'>
+            <div className='container mx-auto px-4'>
+               <div className='absolute container left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]  px-4 flex flex-col text-[64px] font-thin leading-none gap-4'>
                   <h1>Hello!</h1>
                   <h1>Where are</h1>
                   <span>
@@ -17,14 +17,11 @@ function HomePage(props) {
                   </span>
                </div>
             </div>
-         </div>
-
-         <div className='md:container md:mx-auto relative'>
-            <div className='absolute top-0 translate-y-[-50%] w-full'>
+            <div className='absolute container left-[50%] top-[100%] translate-x-[-50%] translate-y-[-50%]  px-4'>
                <SearchCard />
             </div>
          </div>
-         <div className='fixed w-full bottom-0'>
+         <div className='absolute w-full left-[50%] bottom-[0%] translate-x-[-50%]'>
             <Footer />
          </div>
       </div>
