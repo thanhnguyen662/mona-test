@@ -24,7 +24,7 @@ function FlightCardHeader({
       : 'bg-[#fef0eb] text-orange';
 
    return (
-      <div className='flex items-center justify-between gap-16  w-full'>
+      <div className='flex items-center justify-between gap-10  w-full'>
          <FlightAirline airlineCode={airlineCode} />
          <div className='flex-1'>
             <FlightDetailTime
