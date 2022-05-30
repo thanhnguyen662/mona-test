@@ -6,7 +6,9 @@ function Logo(props) {
 
    return (
       <div onClick={() => navigate('/')}>
-         <h1 className='text-2xl font-bold  cursor-pointer'>Baycungban</h1>
+         <h1 className='text-2xl font-bold leading-none cursor-pointer'>
+            Baycungban
+         </h1>
       </div>
    );
 }

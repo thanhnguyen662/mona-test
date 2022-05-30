@@ -7,7 +7,7 @@ import SearchCardHeader from './subComponents/SearchCardHeader';
 
 function SearchCard(props) {
    return (
-      <div className='bg-white rounded-3xl px-8 pt-8 pb-14 shadow-xl flex flex-col gap-6'>
+      <div className='bg-white rounded-3xl px-8 pt-8 pb-14 shadow-xl flex flex-col gap-6 relative'>
          <div className='flex items-center gap-24 text-lg'>
             <SearchCardHeader />
          </div>
@@ -19,7 +19,7 @@ function SearchCard(props) {
                <SearchCardFlyTime />
             </div>
          </div>
-         <div className='absolute top-full translate-y-[-50%] left-[84.5%]'>
+         <div className='absolute top-[100%] left-[calc(100%-2rem)] translate-y-[-50%] translate-x-[-100%] w-fit'>
             <SearchButton />
          </div>
       </div>

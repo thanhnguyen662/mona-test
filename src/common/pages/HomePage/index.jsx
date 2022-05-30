@@ -9,7 +9,7 @@ function HomePage(props) {
          <div className='bg-home h-[70vh] bg-cover relative'>
             <Header theme='dark' />
             <div className='container mx-auto px-4'>
-               <div className='absolute container left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]  px-4 flex flex-col text-[64px] font-thin leading-none gap-4'>
+               <div className='absolute container left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]  px-4 flex flex-col text-7xl font-thin leading-none gap-4'>
                   <h1>Hello!</h1>
                   <h1>Where are</h1>
                   <span>
